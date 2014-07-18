@@ -7,7 +7,7 @@ node[:deploy].each do |application, deploy|
   end
 
   # ROOT has a special meaning and has to be capitalized
-  if application == 'root'
+  if application == 'root' || deploy[:java][:use_root_dir]
     webapp_name = 'ROOT'
   else
     webapp_name = application

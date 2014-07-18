@@ -27,7 +27,7 @@ node[:deploy].each do |application, deploy|
     end
     mounted_at deploy[:mounted_at]
     ssl_certificate_ca deploy[:ssl_certificate_ca]
-    if application == 'root'
+    if application == 'root' || deploy[:java][:use_root_dir]
       target_context ''
     else
       target_context "#{application}/"
